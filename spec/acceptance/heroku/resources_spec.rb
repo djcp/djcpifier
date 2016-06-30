@@ -32,7 +32,13 @@ describe Endpoints::Heroku::Resources do
       expect(Resource[uuid: response['id']]).not_to be_nil
     end
 
-    it "returns config"
+    it "returns config" do
+      post "/heroku/resources", MultiJson.encode(params)
+      response = MultiJson.decode(last_response.body)
+      config = response['config']
+
+      expect(config).to include('DJCPIFIER_URL' => ENV['DJCPIFIER_URL'])
+    end
 
   end
 

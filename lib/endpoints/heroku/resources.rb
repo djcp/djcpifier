@@ -21,7 +21,12 @@ module Endpoints
         resource = creator.call
 
         status 201
-        MultiJson.encode(id: resource.uuid)
+        MultiJson.encode(
+          id: resource.uuid,
+          config: {
+          'DJCPIFIER_URL' => ENV['DJCPIFIER_URL']
+          }
+        )
       end
 
       put "/:id" do |id|
