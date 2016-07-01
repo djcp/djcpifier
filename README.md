@@ -7,14 +7,9 @@ For more information please refer to the Pliny gem docs.
 
 ## Getting Started
 
-Deploy your copy via the Heroku Button
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/heroku/addon-template)
-
-Then run the following commands to work with the generated code locally:
-
 ```sh-session
-heroku git:clone --app <new-app-name>
+# fork it!
+git clone https://github.com/<your account>/djcpifier
 bin/setup
 kensa init
 #edit addon-manifest.json in your favorite editor
@@ -44,6 +39,15 @@ not need to list config vars here.
 ### Using Kensa to test your service
 
 Refer to the [Building a Heroku Add-on](https://devcenter.heroku.com/articles/building-a-heroku-add-on) article for instructions and how to use kensa to test your add-on service.
+
+tl;dr version:
+
+        # make sure your .env makes sense, start this app via heroku local
+        # run all kensa tests
+        kensa test
+
+        # run the kensa acceptance tests
+        kensa kensa run ruby spec/test_djcpifier_kensa.rb
 
 ### Initializing and using postgres extensions on linux
 
